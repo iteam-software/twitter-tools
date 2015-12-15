@@ -1,7 +1,6 @@
-﻿using ITeamSoftware.Tools.Twitter.DataTransferObjects;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace ITeamSoftware.Tools.Twitter.Services
+namespace ITeamSoftware.Tools.Twitter
 {
     public interface ITwitterApplicationOnlyService
     {

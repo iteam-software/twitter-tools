@@ -1,4 +1,4 @@
-﻿namespace ITeamSoftware.Tools.Twitter.DataTransferObjects
+﻿namespace ITeamSoftware.Tools.Twitter
 {
     public class TwitterUser
     {

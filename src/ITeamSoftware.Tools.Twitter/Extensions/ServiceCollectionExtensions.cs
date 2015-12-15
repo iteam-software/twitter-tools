@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace ITeamSoftware.Tools.Twitter.Extensions
+namespace ITeamSoftware.Tools.Twitter
 {
     public static class ServiceCollectionExtensions
     {

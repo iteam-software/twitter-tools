@@ -1,4 +1,3 @@
-using ITeamSoftware.Tools.Twitter.DataTransferObjects;
 using Microsoft.Extensions.WebEncoders;
 using Newtonsoft.Json;
 using System;
@@ -8,7 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITeamSoftware.Tools.Twitter.Services
+namespace ITeamSoftware.Tools.Twitter
 {
     public class TwitterApplicationOnlyService : ITwitterApplicationOnlyService
     {

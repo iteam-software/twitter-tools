@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ITeamSoftware.Tools.Twitter.DataTransferObjects
+﻿namespace ITeamSoftware.Tools.Twitter
 {
     public class TwitterTweet
     {
