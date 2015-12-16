@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ITeamSoftware.Tools.Twitter.Services
+namespace ITeamSoftware.Tools.Twitter
 {
     public class TwitterDateStringBuilder : ITwitterDateStringBuilder
     {
@@ -8,7 +8,7 @@ namespace ITeamSoftware.Tools.Twitter.Services
 
         public string Build(TwitterTweet tweet)
         {
-            var date = DateTime.ParseExact(tweet.created_at, TwitterDateFormat, new System.Globalization.CultureInfo("en-US"));
+            var date = DateTime.ParseExact(tweet.created_at, TwitterDateFormat, new System.Globalization.CultureInfo("en-US")).ToLocalTime();
             var diff = DateTime.Now - date;
 
             if (diff > TimeSpan.FromDays(365))

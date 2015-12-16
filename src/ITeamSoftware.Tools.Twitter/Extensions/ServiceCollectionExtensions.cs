@@ -1,5 +1,4 @@
-﻿using ITeamSoftware.Tools.Twitter.Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace ITeamSoftware.Tools.Twitter
@@ -17,6 +16,7 @@ namespace ITeamSoftware.Tools.Twitter
             config(options);
 
             collection.AddTransient<ITwitterApplicationOnlyService, TwitterApplicationOnlyService>();
+            collection.AddTransient<ITwitterDateStringBuilder, TwitterDateStringBuilder>();
             collection.AddSingleton(o => options);
 
             return collection;

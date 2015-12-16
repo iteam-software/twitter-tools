@@ -1,4 +1,4 @@
-﻿namespace ITeamSoftware.Tools.Twitter.Services
+﻿namespace ITeamSoftware.Tools.Twitter
 {
     public interface ITwitterDateStringBuilder
     {

@@ -3,14 +3,13 @@ using Microsoft.AspNet.Razor.TagHelpers;
 
 namespace ITeamSoftware.Tools.Twitter.TagHelpers
 {
-    using Services;
-
-    [HtmlTargetElement("twitter-card", ParentTag = "div")]
+    [HtmlTargetElement("div", Attributes = TwitterCardAttributeName)]
     public class TwitterCardTagHelper : TagHelper
     {
         private readonly ITwitterDateStringBuilder _dateBuilder;
+        private const string TwitterCardAttributeName = "twitter-card";
 
-        [HtmlAttributeName("twitter-card")]
+        [HtmlAttributeName(TwitterCardAttributeName)]
         public TwitterTweet Tweet { get; set; }
 
         public TwitterCardTagHelper(ITwitterDateStringBuilder dateBuilder)

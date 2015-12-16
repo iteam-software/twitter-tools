@@ -1,4 +1,3 @@
-using ITeamSoftware.Tools.Twitter.Services;
 using System;
 using Xunit;
 
@@ -14,21 +13,21 @@ namespace ITeamSoftware.Tools.Twitter.Test
         public void TwitterDate_GreaterThanYear()
         {
             // setup
-            var date = DateTime.Now.AddDays(-370);
+            var date = new DateTime(2012, 1, 15).ToUniversalTime();
             var tweet = new TwitterTweet { created_at = date.ToString(TwitterDateStringBuilder.TwitterDateFormat) };
 
             // act
             var converted = TwitterDateService.Build(tweet);
 
             // assert
-            Assert.Equal(date.ToString("d MMM yyyy"), converted);
+            Assert.Equal("15 Jan 2012", converted);
         }
 
         [Fact]
         public void TwitterDate_LessThanYear_GreaterThanDay()
         {
             // setup
-            var date = DateTime.Now.AddDays(-40);
+            var date = DateTime.UtcNow.AddDays(-40);
             var tweet = new TwitterTweet { created_at = date.ToString(TwitterDateStringBuilder.TwitterDateFormat) };
 
             // act
@@ -42,23 +41,21 @@ namespace ITeamSoftware.Tools.Twitter.Test
         public void TwitterDate_LessThanDay_GreaterThanHour()
         {
             // setup
-            var date = DateTime.Now.AddHours(-2);
-            var now = DateTime.Now;
+            var date = DateTime.UtcNow.AddHours(-2);
             var tweet = new TwitterTweet { created_at = date.ToString(TwitterDateStringBuilder.TwitterDateFormat) };
 
             // act
             var converted = TwitterDateService.Build(tweet);
 
             // assert
-            Assert.Equal((now - date).ToString("%h") + 'h', converted);
+            Assert.Equal("2h", converted);
         }
 
         [Fact]
         public void TwitterDate_LessThanHour_GreaterThanMinute()
         {
             // setup
-            var date = DateTime.Now.AddMinutes(-2);
-            var now = DateTime.Now;
+            var date = DateTime.UtcNow.AddMinutes(-2);
             var tweet = new TwitterTweet { created_at = date.ToString(TwitterDateStringBuilder.TwitterDateFormat) };
 
             // act
@@ -66,22 +63,21 @@ namespace ITeamSoftware.Tools.Twitter.Test
 
             // assert
             Console.WriteLine(converted);
-            Assert.Equal((now - date).ToString("%m") + 'm', converted);
+            Assert.Equal("2m", converted);
         }
 
         [Fact]
         public void TwitterDate_LessThanMinute()
         {
             // setup
-            var date = DateTime.Now.AddSeconds(-10);
-            var now = DateTime.Now;
+            var date = DateTime.UtcNow.AddSeconds(-10);
             var tweet = new TwitterTweet { created_at = date.ToString(TwitterDateStringBuilder.TwitterDateFormat) };
 
             // act
             var converted = TwitterDateService.Build(tweet);
 
             // assert
-            Assert.Equal((now - date).ToString("%s") + 's', converted);
+            Assert.Equal("10s", converted);
         }
     }
 }
